@@ -1,5 +1,5 @@
 {
-  "name": "Mossey/Mpesa",
+  "name": "mossey/mpesa",
   "description": "A PHP package for Mpesa API",
   "type": "package",
   "require": {
