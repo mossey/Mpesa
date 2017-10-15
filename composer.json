@@ -2,7 +2,7 @@
   "name": "mossey/mpesa",
   "description": "A PHP package for Mpesa API",
   "type": "package",
- "minimum-stability": "stable", 
+ "minimum-stability": "dev", 
  "require": {
     "php": ">=5.3.0"
   },
