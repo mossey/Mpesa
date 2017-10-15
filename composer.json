@@ -1,0 +1,21 @@
+{
+  "name": "Mossey/Mpesa",
+  "description": "A PHP package for Mpesa API",
+  "type": "package",
+  "require": {
+    "php": ">=5.3.0"
+  },
+  "license": "mit",
+  "authors": [
+    {
+      "name": "Moses Nandwa",
+      "email": "nandwa.moses@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "autoload": {
+    "psr-4": {
+      "Mossey\\Mpesa\\": "src"
+    }
+  }
+}
