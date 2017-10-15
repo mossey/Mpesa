@@ -175,7 +175,7 @@ class Mpesa
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer '.$token)); //setting custom header
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type:application/json','Authorization:Bearer '.self::generateToken())); //setting custom header
 
 
         $curl_post_data = array(
@@ -263,7 +263,7 @@ class Mpesa
         $url = 'https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest';
 
         $timestamp='20'.date(    "ymdhis");
-        $password=base64_encode($BusinessShortCode.$passkey.$timestamp);
+        $password=base64_encode($BusinessShortCode.$LipaNaMpesaPasskey.$timestamp);
 
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
@@ -291,6 +291,7 @@ class Mpesa
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, $data_string);
         curl_setopt($curl, CURLOPT_HEADER, false);
+        $curl_response=curl_exec($curl);
         return $curl_response;
 
 
@@ -339,20 +340,21 @@ class Mpesa
             "ResultDesc"=>"Confirmation Service request accepted successfully",
             "ResultCode"=>"0"
         ];
-        error_log(json_encode($resultArray));
-        return response()->json($resultArray);;
+        header('Content-Type: application/json');
+
+        echo json_encode($resultArray);
     }
 
-    /**
-     * @return \Illuminate\Http\JsonResponse
-     */
+
     public function validate(){
         $resultArray=[
             "ResultDesc"=>"Confirmation Service request accepted successfully",
             "ResultCode"=>"0"
         ];
-        error_log(json_encode($resultArray));
-        return response()->json($resultArray);;
+
+        header('Content-Type: application/json');
+
+        echo json_encode($resultArray);
     }
     /**
      * @return string
@@ -362,8 +364,10 @@ class Mpesa
             "ResultDesc"=>"Confirmation Service request declined",
             "ResultCode"=>"1"
         ];
-        error_log(json_encode($resultArray));
-        return response()->json($resultArray);;
+
+        header('Content-Type: application/json');
+
+        echo json_encode($resultArray);
     }
 
 }
