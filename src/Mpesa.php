@@ -21,6 +21,9 @@ class Mpesa
     public static function generateToken(){
         $consumer_key=env("consumer_key");
         $consumer_secret=env("consumer_secret");
+        if(!isset($consumer_key)||!isset($consumer_secret)){
+            die("please declare the consumer key and consumer secret as defined in the documentation");
+        }
         $url = 'https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials';
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
