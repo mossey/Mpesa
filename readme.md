@@ -1,3 +1,8 @@
+**This package has been abandoned please use https://github.com/safaricom/mpesa-php-sdk**
+
+
+
+
 **Introduction**
 
 This package seeks to help php developers implement the various Mpesa APIs without much hustle. It is based on the REST API whose documentation is available on http://developer.safaricom.co.ke.
